@@ -1,0 +1,44 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Usuário</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+
+{% if current_user.is_authenticated %}
+
+<!--  <div>
+        <h1>{{ current_user.name }}</h1>
+        <p>Esste texto aparece caso você esteja logado.</p>
+        <a href="{{url_for('logout')}}">Sair</a>
+    </div>-->
+
+    <section class="hero is-link is-fullheight">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Perfil de {{ current_user.name }}
+            </h1>
+            <h2 class="subtitle has-text-primary">
+              Parabéns! Você é o Usuário Numero #{{ current_user.id }}
+            </h2>
+            <p>Este texto aparece caso você esteja logado.</p>
+            <br> <br>
+            <a class="button is-primary is-hovered" href="{{url_for('logout')}}">
+              Logout
+            </a>
+          </div>
+        </div>
+      </section>
+
+{% else %}
+<section class="hero is-danger is-fullheight">
+    <div class="hero-body"></div>
+        <div class="container">
+            <h1 class="title">Visitante</h1>
+            <h2 class="subtitle has-text-info">Esse texto aparece caso você não esteja logado.</p>
+        </div>
+    </div>
+<section></section>
+{% endif %}
