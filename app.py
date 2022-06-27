@@ -4,6 +4,7 @@ from flask_login import login_user, logout_user
 from flask_login import LoginManager
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
+import os
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -72,4 +73,5 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.getenv('PORT'), '5000') 
+    app.run(host='0.0.0.0', port = port, debug=True)
