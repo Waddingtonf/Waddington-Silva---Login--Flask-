@@ -9,7 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:wK050885@localhost/flasklogin'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://yqamigryqnjmxl:180ee9d8de24aa592779826530b513d37efcee9a776c19e6cd1035ad06de17d7@ec2-44-205-41-76.compute-1.amazonaws.com:5432/dfminucost016v'
 app.config['SECRET_KEY'] = 'wK050885'
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
